@@ -25,7 +25,7 @@ const addTable = (container, tableName, keys, values, checked) => {
 setInterval(() => {
     console.log('data reloaded')
     dataReload()
-}, 1000 * 60 * 30)
+}, 1000 * 4)
 
 let chart, chart2
 
