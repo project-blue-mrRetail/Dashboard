@@ -15,8 +15,8 @@ const addTable = (container, tableName, keys, values, checked) => {
         spanTr.appendChild(td1)
         spanTr.appendChild(td2)
         tr.appendChild(spanTr)
+        table.appendChild(tr)
     })
-    table.appendChild(tr)
     if (document.querySelector(`.${tableName}`))
         document.querySelector(`.${tableName}`).remove()
     document.getElementsByClassName(container)[0].append(table)
@@ -39,12 +39,12 @@ let configuration = (keys, values, type) => {
                     label: 'Number of clicks',
                     data: values.map(r => r[0]),
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 99, 132, 0.3)',
+                        'rgba(54, 162, 235, 0.3)',
+                        'rgba(255, 206, 86, 0.3)',
+                        'rgba(75, 192, 192, 0.3)',
+                        'rgba(153, 102, 255, 0.3)',
+                        'rgba(255, 159, 64, 0.3)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
@@ -59,6 +59,9 @@ let configuration = (keys, values, type) => {
             ]
         },
         options: {
+            animation: {
+                duration: 0
+            },
             scales: {
                 y: {
                     beginAtZero: true
@@ -91,12 +94,10 @@ const dataReload = async () => {
         res.json().then(r => {
             const keys = Object.keys(r)
             const values = Object.values(r)
-            const container = document.createElement('div')
             addTable('table1', 'tableMain', keys, values, false)
             addTable('table2', 'tableSide', keys, values, true)
 
             var ctx = document.getElementById('myChart').getContext('2d')
-
             if (chart) {
                 chart.destroy()
                 chart = new Chart(ctx, configuration(keys, values, 'bar'))
@@ -104,14 +105,13 @@ const dataReload = async () => {
                 chart = new Chart(ctx, configuration(keys, values, 'bar'))
             }
 
-            var ctx2 = document.getElementById('myChart2').getContext('2d')
-
-            if (chart2) {
-                chart2.destroy()
-                chart2 = new Chart(ctx2, configuration(keys, values, 'doughnut'))
-            } else {
-                chart2 = new Chart(ctx2, configuration(keys, values, 'doughnut'))
-            }
+            // var ctx2 = document.getElementById('myChart2').getContext('2d')
+            // if (chart2) {
+            //     chart2.destroy()
+            //     chart2 = new Chart(ctx2, configuration(keys, values, 'doughnut'))
+            // } else {
+            //     chart2 = new Chart(ctx2, configuration(keys, values, 'doughnut'))
+            // }
         })
     )
 }
