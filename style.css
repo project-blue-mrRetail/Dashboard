@@ -11,24 +11,53 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: radial-gradient(circle, rgba(75, 107, 183, 0.9), rgba(24, 40, 72));
+    /* background: radial-gradient(circle, rgba(75, 107, 183, 0.9), rgba(24, 40, 72)); */
+    background: white;
 }
 
 #heading {
     text-align: center;
     font-size: 2.5rem;
-    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.5); */
+    background: url('./image/back.jpg') no-repeat center center/cover;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 10px;
-    padding: 20px;
+    padding: 45px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 
-.subHeading {
-    background-color: rgba(128, 128, 128, 0.747);
-    width: 80%;
-    text-shadow: 2px 2px 2px black;
-    margin-bottom: 1rem;
+.icon p {
+    font-family: inherit;
+    font-size: 2rem;
+    padding-left: 10px;
+}
+
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2px 0;
+    margin-bottom: 20px;
+}
+
+.icon::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 40px;
+    height: 100%;
+    position: absolute;
+    background: rgba(6, 222, 230, 0.815);
+    backdrop-filter: blur(10px);
+    z-index: -1;
 }
 
 .tables {
@@ -39,7 +68,7 @@ body {
 .table1,
 .table2 {
     /* border: 2px solid red; */
-    color: white;
+    /* color: white; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,6 +91,7 @@ body {
 .table1 tr td,
 .table2 tr td {
     text-transform: capitalize;
+    padding: 1px;
 }
 
 .spanTr {
@@ -70,22 +100,22 @@ body {
     flex-direction: row;
     border: 2px solid #000;
     gap: .7rem;
-    border-radius: 10% 20% / 20% 5%;
+    border-radius: 10px;
 }
 
-.allCharts {
+/* .allCharts {
     flex-grow: 1;
     display: flex;
     gap: .5rem;
-}
+} */
 
 .container,
 .container2 {
     /* width: 50%; */
     width: 95%;
-    height: 100%;
+    height: 120%;
     margin: auto;
-    background-color: white;
+    /* background-color: white; */
     border: 2px solid rgb(125, 208, 223);
 }
 
